@@ -121,8 +121,7 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
-    background: #0000;
-    border: solid 3px #fff1;
+    background: rgb(255,255,255,0.1);
     border-radius: 5px;
     padding: 7.5px;
     width: fit-content;
