@@ -12,14 +12,17 @@ async function getData() {
   const data = await fetch(
     "https://corsproxy.io/?https://studio.nia-statistics.com/api/channel/UCPW_cNzrDSf0xejLOKvV7Cg"
   ).then((resp) => resp.json());
-  elementContent = document.getElementById("elementID").innerHTML;
+  var elementContent = document.getElementById("elementID").innerHTML;
+  if (!resp.ok) {
+    elementContent = 404
+  }
   var prevsubs = parseFloat(elementContent.replace(/,/g, ""));
   var currentsubs = data.channels.counts[2].count;
   var c = new CountUp("elementID", prevsubs, currentsubs);
   c.start();
 }
 getData();
-setInterval(getData, 2 * 1000); // 2 seconds update time
+setInterval(getData, 3 * 1000); // 3 seconds update time
 
 // lanyard
 
